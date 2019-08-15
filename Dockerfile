@@ -24,6 +24,6 @@ ENV RAILS_LOG_TO_STDOUT true
 
 RUN bundle install
 
-RUN RAILS_ENV=production bin/rails assets:precompile
+# RUN RAILS_ENV=production bin/rails assets:precompile
 
 ADD . /myapp
