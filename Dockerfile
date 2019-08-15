@@ -12,6 +12,7 @@ ADD Gemfile /myapp/Gemfile
 ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
+ENV SECRET_KEY_BASE=$(bundle exec rails secret)
 
 RUN bundle install
 
