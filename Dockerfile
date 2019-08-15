@@ -9,6 +9,10 @@ WORKDIR /myapp
 
 ADD Gemfile /myapp/Gemfile
 
+ENV RAILS_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
+
 RUN bundle install
 
 ADD . /myapp
