@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:image" content="<%= asset_path 'mauth@2x.png' %>" />
+
+  <%= metamagic %>
+
+  <%= stylesheet_link_tag :mauth, media: 'all' %>
+  <%= javascript_include_tag :mauth %>
+
+  <%= javascript_include_tag 'likely.js', media: 'all' %>
+  <%= stylesheet_link_tag 'likely.css', media: 'all' %>
+
+  <%= csrf_meta_tags %>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1693337-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+  <script type="text/javascript">
+    // Viva Ilya Birman!
+    $(function() {
+      $("a").hover(function() {
+        "" != $(this).attr("href") && "#" != $(this).attr("href") && $('a[href="' + $(this).attr("href") + '"]').addClass("hover")
+      }, function() {
+        $("a").removeClass("hover")
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+  <%= yield %>
+
+  <!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter167450 = new Ya.Metrika({id:167450, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/167450" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
