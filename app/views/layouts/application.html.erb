@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123673366-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-123673366-2');
+  </script>
+
+  <%
+    meta title: "Marat Saytakov",
+         description: "iOS Developer && Traveler",
+         keywords: %w(Марат Сайтаков ios developer программист разработчик swift objective-c resume cv moscow metro wifi москва метро авторизация вайфай chars unicode keyboard клавиатура символы айфон юникод percent calculator калькулятор проценты)
+
+    og title: "",
+       description: "",
+       image: "https://m4rr.ru/images/m4rr.ru-og-image.png",
+       type: "website",
+       url: 'https://m4rr.ru'
+
+    twitter card: "summary",
+            :'text:title' => "Marat Saytakov",
+            :'text:description' => "iOS Developer && Traveler"
+  %>
+
+  <%= metamagic %>
+
+  <meta charset="utf-8">
+  <meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="https://m4rr.ru/images/touch-icon@2x.png" />
+
+  <link rel="author" type="text/plain" href="https://m4rr.ru/humans.txt" />
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true  %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+    $(function() {
+      $("a").hover(function() {
+        "" != $(this).attr("href") && "#" != $(this).attr("href") && $('a[href="' + $(this).attr("href") + '"]').addClass("hover")
+      }, function() {
+        $("a").removeClass("hover")
+      });
+    });
+  </script>
+</head>
+<body>
+
+<%= yield %>
+
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter167450 = new Ya.Metrika({id:167450, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/167450" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
