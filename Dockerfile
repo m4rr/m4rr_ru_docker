@@ -12,7 +12,7 @@ ADD Gemfile /myapp/Gemfile
 ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
-RUN export SECRET_KEY_BASE=$(bundle exec rails secret)
+RUN export SECRET_KEY_BASE=`bin/rake secret` bin/rake assets:precompile
 
 RUN bundle install
 
