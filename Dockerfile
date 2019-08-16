@@ -8,13 +8,14 @@ RUN mkdir /pids
 
 WORKDIR /myapp
 
-ADD . /myapp
-# ADD Gemfile /myapp/Gemfile
+ADD Gemfile /myapp/Gemfile
 
 ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
 
 RUN bundle install --without development test
+
+ADD . /myapp
 
 # RUN RAILS_ENV=production bin/rails assets:precompile
