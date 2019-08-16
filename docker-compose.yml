@@ -36,7 +36,7 @@ services:
       - "3000:3000"
     container_name: web
     depends_on:
-      - postgres
+      - db
     # networks:
     #   - default
     #   - webproxy
@@ -50,7 +50,7 @@ services:
       # - LETSENCRYPT_EMAIL=remarr@gmail.com
       # - SECRET_KEY_BASE=1e1f79bf016205045ffa0034fc35df4a41311af5c0d2066415e09859b3b4735dba8d3692f49e75a05c9f2b16fcd49d663fbfce2bd1a2400b950e49c2a8705885
       # - RAILS_MASTER_KEY=28d69ab1e083cb8d07d098319191af56 # @dhh fuck off
-  postgres:
+  db:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
