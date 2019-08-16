@@ -30,4 +30,4 @@ RUN bundle install
 
 ADD . /myapp
 
-RUN bundle exec unicorn -c config/unicorn.rb -E production -D
+RUN bundle exec unicorn -c /myapp/config/unicorn.rb -E production -D
