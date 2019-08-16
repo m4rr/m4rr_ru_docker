@@ -8,7 +8,7 @@ timeout 30
 listen "/tmp/sockets/unicorn.sock", :backlog => 64
 
 # Logging
-# stderr_path "/tmp/log/unicorn.stderr.log"
-# stdout_path "/tmp/log/unicorn.stdout.log"
+stderr_path "/logs/unicorn.stderr.log"
+stdout_path "/logs/unicorn.stdout.log"
 
 pid "/pids/unicorn.pid"
