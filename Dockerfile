@@ -2,7 +2,7 @@ FROM ruby:2.6.3
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
 
-# RUN mkdir /myapp
+RUN mkdir /myapp
 RUN mkdir /tmp/sockets
 RUN mkdir /pids
 
@@ -28,6 +28,6 @@ RUN bundle install
 # RUN RAILS_ENV=production bin/rails assets:precompile
 
 
-# ADD . /myapp
+ADD . /myapp
 
 RUN bundle exec unicorn -c config/unicorn.rb -E production -D

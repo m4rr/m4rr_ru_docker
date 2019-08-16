@@ -38,7 +38,7 @@ services:
     command: bundle exec unicorn -p 3000
     restart: unless-stopped
     volumes:
-      - .:/myapp:rw
+      # - .:/myapp:rw
       - ./log:/logs:rw
     ports:
       - "3000:3000"
