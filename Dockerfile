@@ -28,6 +28,6 @@ RUN bundle install
 # RUN RAILS_ENV=production bin/rails assets:precompile
 
 
-ADD . /myapp
+# ADD . /myapp
 
 RUN bundle exec unicorn -c /myapp/config/unicorn.rb -E production -D
