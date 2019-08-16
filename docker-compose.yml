@@ -1,17 +1,24 @@
 version: '3'
 services:
-  nginx:
-    image: nginx
-    # build: ./docker/web/
-    labels:
-      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
-    container_name: nginx-web
-    restart: always
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
     ports:
       - "80:80"
-      - "443:443"
     volumes:
-      - ./nginx-sites.conf:/etc/nginx/sites-enabled/default
+      - /var/run/docker.sock:/tmp/.unicorn.sock:ro
+  # nginx:
+  #   image: nginx
+  #   # build: ./docker/web/
+  #   labels:
+  #     com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+  #   container_name: nginx-web
+  #   restart: always
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx-sites.conf:/etc/nginx/sites-enabled/default
   #     - /srv/volumes/nginx/conf.d:/etc/nginx/conf.d
   #     - /srv/volumes/nginx/vhost.d:/etc/nginx/vhost.d
   #     - /srv/volumes/nginx/html:/usr/share/nginx/html
