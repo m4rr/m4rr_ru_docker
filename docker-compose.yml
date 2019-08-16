@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
     volumes:
       - .:/myapp
-      - /home/m4rr/m4rr_ru_docker/log:/logs:rw
+      - /home/m4rr/m4rr_ru_docker/shared/log:/logs:rw
     ports:
       - "3000:3000"
     depends_on:
