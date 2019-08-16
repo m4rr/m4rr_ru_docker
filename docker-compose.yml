@@ -49,6 +49,7 @@ services:
       # - LETSENCRYPT_HOST=m4rr.ru
       # - LETSENCRYPT_EMAIL=remarr@gmail.com
       - SECRET_KEY_BASE=rails_sucksd6de14662c9d81b7qcs90f07afdd59316e99c3591dbb092134dc4d613058f1b245524c598bae6876ee207fa41b3a7ab06714ffe76ffc3dd7d8b09
+      - RAILS_MASTER_KEY=28d69ab1e083cb8d07d098319191af56 # @dhh fuck off
   postgres:
     image: postgres
     volumes:
