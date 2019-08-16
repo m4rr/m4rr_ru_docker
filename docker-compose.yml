@@ -7,7 +7,7 @@ services:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-    environment: &environment
+    environment:
       - VIRTUAL_HOST=m4rr.ru
   # nginx:
   #   image: nginx
