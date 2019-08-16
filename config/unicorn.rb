@@ -1,4 +1,4 @@
-working_directory "/myapp"
+# working_directory "/myapp"
 
 worker_processes 1
 preload_app true
@@ -11,4 +11,4 @@ listen "/tmp/docker.sock", :backlog => 64
 # stderr_path "/logs/unicorn.stderr.log"
 # stdout_path "/logs/unicorn.stdout.log"
 
-pid "/pids/unicorn.pid"
+# pid "/pids/unicorn.pid"
