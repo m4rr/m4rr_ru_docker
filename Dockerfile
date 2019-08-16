@@ -15,6 +15,6 @@ ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
 
-RUN bundle install
+RUN bundle install  --no-ri --no-rdoc --without development test
 
 # RUN RAILS_ENV=production bin/rails assets:precompile
