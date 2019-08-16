@@ -18,7 +18,3 @@ ENV RAILS_LOG_TO_STDOUT true
 RUN bundle install
 
 # RUN RAILS_ENV=production bin/rails assets:precompile
-
-
-
-RUN bundle exec unicorn -c config/unicorn.rb -E production -D
