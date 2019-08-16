@@ -4,6 +4,7 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
 
 RUN mkdir /myapp
 RUN mkdir /tmp/sockets
+RUN mkdir /pids
 
 WORKDIR /myapp
 
