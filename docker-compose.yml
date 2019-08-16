@@ -6,7 +6,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - /var/run/docker.sock:/tmp/.unicorn.sock:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
   # nginx:
   #   image: nginx
   #   # build: ./docker/web/
