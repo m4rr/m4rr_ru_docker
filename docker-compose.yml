@@ -57,7 +57,7 @@ services:
       # - LETSENCRYPT_EMAIL=remarr@gmail.com
       - SECRET_KEY_BASE=rails_sucksd6de14662c9d81b7qcs90f07afdd59316e99c3591dbb092134dc4d613058f1b245524c598bae6876ee207fa41b3a7ab06714ffe76ffc3dd7d8b09
 
-networks:
-  default:
-    external:
-      name: webproxy
+# networks:
+#   default:
+#     external:
+#       name: webproxy
