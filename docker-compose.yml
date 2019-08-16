@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
     volumes:
       - .:/myapp
-      - ./log:/logs
+      - ./log:/logs:rw
     ports:
       - "3000:3000"
     depends_on:
