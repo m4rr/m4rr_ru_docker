@@ -1,65 +1,47 @@
 version: '3'
 services:
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    # network_mode: bridge
-    ports:
-      - "80:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-  # nginx:
-  #   image: nginx
-  #   # build: ./docker/web/
-  #   labels:
-  #     com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
-  #   container_name: nginx-web
-  #   restart: always
+  # nginx-proxy:
+  #   image: jwilder/nginx-proxy
+  #   command: ln -sf /dev/stdout /var/log/nginx/access.log && ln -sf /dev/stderr /var/log/nginx/error.log
   #   ports:
   #     - "80:80"
-  #     - "443:443"
   #   volumes:
-  #     - ./nginx-sites.conf:/etc/nginx/sites-enabled/default
-  #     - /srv/volumes/nginx/conf.d:/etc/nginx/conf.d
-  #     - /srv/volumes/nginx/vhost.d:/etc/nginx/vhost.d
-  #     - /srv/volumes/nginx/html:/usr/share/nginx/html
-  #     - /srv/volumes/nginx/certs:/etc/nginx/certs:ro
-  # nginx-gen:
-  #   image: jwilder/docker-gen
-  #   command: -notify-sighup nginx-web -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
-  #   container_name: nginx-gen
-  #   restart: always
-  #   volumes:
-  #     - /srv/volumes/nginx/conf.d:/etc/nginx/conf.d
-  #     - /srv/volumes/nginx/vhost.d:/etc/nginx/vhost.d
-  #     - /srv/volumes/nginx/html:/usr/share/nginx/html
-  #     - /srv/volumes/nginx/certs:/etc/nginx/certs:ro
   #     - /var/run/docker.sock:/tmp/docker.sock:ro
-  #     - ./nginx.tmpl:/etc/docker-gen/templates/nginx.tmpl:ro
-  db:
-    image: postgres
-    # network_mode: bridge
+  nginx:
+    image: nginx
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      # - ./nginx-sites.conf:/etc/nginx/sites-enabled/default:ro
+      - railsocket:/tmp/
+      - .:/myapp
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./data/nginx/logs:/var/log/nginx
+    command: [nginx-debug, '-g', 'daemon off;']
+    ports:
+      - "80:80"
+    depends_on:
+      - web
   web:
     build: .
-    # network_mode: bridge
     # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     # command: bash -c "bundle exec unicorn -c config/unicorn.rb -E development"
+      # - bash -c "bundle exec rake routes"
+      # - bash -c "bundle exec rake assets:precompile"
+      # - "bash -c bundle exec rake db:setup"
     command: bash -c "bundle exec puma -C ./config/puma.rb config.ru"
     restart: unless-stopped
     volumes:
-      - .:/myapp
-      # - ./logs:/logs:rw
-    # ports:
-    #   - "3000:3000"
+      - railsocket:/tmp/
+    #   - .:/myapp
+    ports:
+      - "3000:3000"
+    container_name: web
     depends_on:
-      - db
+      - postgres
     # networks:
     #   - default
     #   - webproxy
     environment: &environment
-      # - SQUIRTUAL_HOST=m4rr.ru
-      - RAILS_ENV=development
+      - RAILS_ENV=production
       - DEFAULT_HOST=localhost
       - "VIRTUAL_PORT=80"
       - "VIRTUAL_PROTO=http"
@@ -67,8 +49,15 @@ services:
       # - LETSENCRYPT_HOST=m4rr.ru
       # - LETSENCRYPT_EMAIL=remarr@gmail.com
       - SECRET_KEY_BASE=rails_sucksd6de14662c9d81b7qcs90f07afdd59316e99c3591dbb092134dc4d613058f1b245524c598bae6876ee207fa41b3a7ab06714ffe76ffc3dd7d8b09
+  postgres:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
 
 # networks:
 #   default:
 #     external:
 #       name: webproxy
+
+volumes:
+  railsocket:

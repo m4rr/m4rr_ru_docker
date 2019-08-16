@@ -1,0 +1,11 @@
+2019/08/16 12:59:23 [emerg] 1#1: "upstream" directive is not allowed here in /etc/nginx/nginx.conf:12
+2019/08/16 13:00:57 [emerg] 1#1: "listen" directive is not allowed here in /etc/nginx/nginx.conf:21
+2019/08/16 13:01:30 [emerg] 1#1: "location" directive is not allowed here in /etc/nginx/nginx.conf:26
+2019/08/16 13:02:39 [emerg] 1#1: host not found in upstream "web" in /etc/nginx/nginx.conf:27
+2019/08/16 13:06:40 [emerg] 1#1: host not found in upstream "web" in /etc/nginx/nginx.conf:27
+2019/08/16 13:11:35 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.26.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.26.0.3:3000/", host: "localhost"
+2019/08/16 13:11:36 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.26.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.26.0.3:3000/", host: "localhost"
+2019/08/16 13:12:01 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.26.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.26.0.3:3000/", host: "localhost"
+2019/08/16 13:12:03 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.26.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.26.0.3:3000/", host: "localhost"
+2019/08/16 13:12:03 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.26.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.26.0.3:3000/", host: "localhost"
+2019/08/16 13:12:03 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.26.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.26.0.3:3000/", host: "localhost"

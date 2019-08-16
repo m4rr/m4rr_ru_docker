@@ -14,8 +14,15 @@ ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
 
-RUN bundle install
+# RUN bundle install
+RUN RAILS_ENV=production bundle --without development test
 
 ADD . /myapp
 
+RUN RAILS_ENV=production bundle exec rake routes
+# RUN RAILS_ENV=production bundle exec "rake db:migrate"
+RUN RAILS_ENV=production bundle exec rake --quiet assets:clobber
+RUN RAILS_ENV=production bundle exec rake --quiet assets:precompile
+
+RUN touch tmp/restart.txt
 # RUN RAILS_ENV=production bin/rails assets:precompile
