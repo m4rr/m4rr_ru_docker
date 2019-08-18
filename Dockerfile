@@ -19,12 +19,13 @@ RUN RAILS_ENV=production bundle --without development test
 
 ADD . /myapp
 
+CMD RAILS_ENV=production bundle exec rake db:migrate
+
 # RUN RAILS_ENV=production bundle exec rake assets:clean
 # RUN RAILS_ENV=production bundle exec rake --quiet assets:clobber
 RUN RAILS_ENV=production bundle exec rake --quiet assets:precompile
 
 RUN RAILS_ENV=production bundle exec rake routes
-# CMD RAILS_ENV=production bundle exec rake "db:migrate"
 
 # CMD touch tmp/restart.txt
 # RUN RAILS_ENV=production bin/rails assets:precompile
