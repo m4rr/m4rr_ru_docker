@@ -17,8 +17,8 @@ services:
       - ./data/nginx/logs:/var/log/nginx
     command: [nginx-debug, '-g', 'daemon off;']
     ports:
-      - "80"
-      - "443"
+      - "80:80"
+      - "443:443"
     depends_on:
       - web
   web:
