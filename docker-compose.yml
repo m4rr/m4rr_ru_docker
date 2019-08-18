@@ -36,8 +36,8 @@ services:
     ports:
       - "3000:3000"
     container_name: web
-    networks:
-      - mainnet
+    # networks:
+    #   - mainnet
     depends_on:
       - db
     # networks:
@@ -66,6 +66,6 @@ services:
 # volumes:
 #   railsocket:
 
-networks:
-  mainnet:
-    driver: bridge
+# networks:
+#   mainnet:
+#     driver: bridge
