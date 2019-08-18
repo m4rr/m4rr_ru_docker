@@ -24,7 +24,7 @@ ADD . /myapp
 RUN RAILS_ENV=production bundle exec rake --quiet assets:precompile
 
 RUN RAILS_ENV=production bundle exec rake routes
-RUN RAILS_ENV=production bundle exec bin/rails "db:migrate"
+# CMD RAILS_ENV=production bundle exec rake "db:migrate"
 
 # CMD touch tmp/restart.txt
 # RUN RAILS_ENV=production bin/rails assets:precompile
