@@ -21,6 +21,7 @@ ADD . /myapp
 
 CMD RAILS_ENV=production bundle exec rake routes
 CMD RAILS_ENV=production bundle exec bin/rails "db:migrate"
+CMD RAILS_ENV=production bundle exec rake assets:clean
 CMD RAILS_ENV=production bundle exec rake --quiet assets:clobber
 CMD RAILS_ENV=production bundle exec rake --quiet assets:precompile
 
