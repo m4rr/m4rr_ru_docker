@@ -399,7 +399,7 @@ a {
 
 .tooltip {
   font: 13px $font-stack;
-  position: relative; z-index: 1; width: 160px; color: var(--text-color); text-align: center; opacity: 0; transform: translate(0, -20px); transition: .3s;
+  position: relative; z-index: 1; width: 160px; color: #556; text-align: center; opacity: 0; transform: translate(0, -20px); transition: .3s;
 }
 
 .tooltip.show { transform:translate(0, 0); opacity:1; }
