@@ -10,15 +10,15 @@ services:
   nginx:
     image: nginx
     volumes:
-      # - ./nginx-sites.conf:/etc/nginx/sites-enabled/default:ro
-      - railsocket:/tmp/
       - .:/myapp
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - ./data/nginx/logs:/var/log/nginx
-    command: [nginx-debug, '-g', 'daemon off;']
+      # - ./nginx-sites.conf:/etc/nginx/sites-enabled/default:ro
+      # - railsocket:/tmp/
+    # command: [nginx-debug, '-g', 'daemon off;']
     ports:
       - "80:80"
-      - "443:443"
+      # - "443:443"
     depends_on:
       - web
   web:
@@ -30,8 +30,8 @@ services:
       # - "bash -c bundle exec rake db:setup"
     command: bash -c "bundle exec puma -C ./config/puma.rb config.ru"
     restart: unless-stopped
-    volumes:
-      - railsocket:/tmp/
+    # volumes:
+    #   - railsocket:/tmp/
     #   - .:/myapp
     ports:
       - "3000:3000"
@@ -43,9 +43,9 @@ services:
     #   - webproxy
     environment: &environment
       - RAILS_ENV=production
-      - DEFAULT_HOST=localhost
-      - "VIRTUAL_PORT=80"
-      - "VIRTUAL_PROTO=http"
+      # - DEFAULT_HOST=localhost
+      # - VIRTUAL_PORT=80
+      # - VIRTUAL_PROTO=http
       - VIRTUAL_HOST=m4rr.ru
       # - LETSENCRYPT_HOST=m4rr.ru
       # - LETSENCRYPT_EMAIL=remarr@gmail.com
@@ -61,5 +61,5 @@ services:
 #     external:
 #       name: webproxy
 
-volumes:
-  railsocket:
+# volumes:
+#   railsocket:
