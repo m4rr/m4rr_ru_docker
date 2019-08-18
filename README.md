@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/m4rr/m4rr_on_rails.svg?branch=master)](https://travis-ci.org/m4rr/m4rr_on_rails)
 
-A source code of [m4rr.ru](https://m4rr.ru)
+A source code of [m4rr.ru](https://m4rr.ru). A dockerized [m4rr_on_rails](https://github.com/m4rr/m4rr_on_rails).
 
 ## :flashlight: Known Issues
 
