@@ -4,7 +4,7 @@ require 'nokogiri'
 class WelcomeController < ApplicationController
 
   if Rails.env.production?
-    http_basic_authenticate_with name: 'm4rr', password: ENV["SyncPass"], except: [:index] # only: [:sync]
+    http_basic_authenticate_with name: 'm4rr', password: ENV["DEFAULT_HOST"], except: [:index] # only: [:sync]
   end
 
   def index
