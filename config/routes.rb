@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   get 'stars', to: 'stars#index'
   get 'stars/privacy-policy', to: 'stars#privacy_policy'
 
-  get 'https://m4rr.ru/uzel/klevo!/l9pis/', to: redirect('https://blog.m4rr.ru/all/tekst-pesni-ramonki/')
+  get '/uzel/klevo!/l9pis/', to: redirect('https://blog.m4rr.ru/all/tekst-pesni-ramonki/')
 
 end
