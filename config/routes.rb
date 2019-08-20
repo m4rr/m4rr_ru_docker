@@ -1,6 +1,7 @@
 CV_PDF_URI ||= '/marat-saytakov-cv.pdf'
 
 Rails.application.routes.draw do
+
   root 'welcome#index'
 
   # CV
@@ -18,4 +19,7 @@ Rails.application.routes.draw do
   # Stars
   get 'stars', to: 'stars#index'
   get 'stars/privacy-policy', to: 'stars#privacy_policy'
+
+  get 'https://m4rr.ru/uzel/klevo!/l9pis/', to: redirect('https://blog.m4rr.ru/all/tekst-pesni-ramonki/')
+
 end
