@@ -6,8 +6,6 @@ git pull && docker-compose build
 
 cd ~
 docker stop nginx-proxy
-docker network connect m4rrrudocker_default nginx-proxy
-docker network connect blogm4rrdeploy_default nginx-proxy
 
 # to build from scratch:
 # docker run -d -p 80:80 --rm --restart=unless-stopped --name nginx-proxy -e ENABLE_IPV6=true -v /var/run/docker.sock:/tmp/docker.sock jwilder/nginx-proxy
@@ -25,3 +23,5 @@ docker-compose up -d
 
 cd ~
 docker start nginx-proxy
+docker network connect m4rrrudocker_default nginx-proxy
+docker network connect blogm4rrdeploy_default nginx-proxy
